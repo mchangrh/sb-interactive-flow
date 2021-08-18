@@ -1,0 +1,60 @@
+/* Global Defaults */
+html, body {
+  background: #121212;
+  color: #D5D7D8;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+/* Links and Images */
+a, a:link, a:visited, a:active, a:hover {
+  text-decoration: underline;
+}
+/* Common Classes */
+.clear {
+  clear: both;
+}
+.floatLeft {
+  float: left;
+}
+.floatRight {
+  float: right;
+}
+.textLeft {
+  text-align: left;
+}
+.textRight {
+  text-align: right;
+}
+.textCenter {
+  text-align: center;
+}
+.textJustify {
+  text-align: justify;
+}
+.blockCenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Application Specific */
+#page {
+  width: 500px;
+  padding: 20px;
+}
+#response {
+  margin-top: 50px;
+}
+.choice {
+  display: block;
+  background:none;
+  font-size: 1em;
+  color: #D5D7D8;
+  border: 1px solid white;
+  padding: 20px;
+  margin-bottom: 30px;
+  height: 60px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}

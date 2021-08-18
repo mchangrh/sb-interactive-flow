@@ -5,6 +5,10 @@ $(document).ready(function () {
         var target = $(this).data('target');
         loadPage(target);
     });
+    $('.choice').on('click', function () {
+        var target = $(this).data('target');
+        loadPage(target);
+    });
 });
 
 function loadPage(id) {
@@ -14,8 +18,8 @@ function loadPage(id) {
     clearPage();
     setText(page_data.text);
     if (page_data.type === 'yesno') {
-        addPrompt('\u2714', page_data.targets[0])
-        addPrompt('\u2718', page_data.targets[1])
+        addPrompt('button1', '\u2714', page_data.targets[0])
+        addPrompt('button2', '\u2718', page_data.targets[1])
     }
     // it not yesno, then end
 }
@@ -24,8 +28,8 @@ function setText(text) {
     $("#page_text").append("<p>" + text + "</p>");
 }
 
-function addPrompt(text, target) {
-    $("#response").append(`<button class=choice data-target=${target}>${text}</button>`);
+function addPrompt(id, text, target) {
+    $("#response").append(`<button class=choice id=${id} data-target=${target}>${text}</button>`);
 }
 
 function clearPage() {
