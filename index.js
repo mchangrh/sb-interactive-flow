@@ -14,8 +14,8 @@ function loadPage(id) {
     clearPage();
     setText(page_data.text);
     if (page_data.type === 'yesno') {
-        addPrompt("✔", page_data.targets[0])
-        addPrompt("✘", page_data.targets[1])
+        addPrompt('\u2714', page_data.targets[0])
+        addPrompt('\u2718', page_data.targets[1])
     }
     // it not yesno, then end
 }
@@ -25,7 +25,7 @@ function setText(text) {
 }
 
 function addPrompt(text, target) {
-    $("#response").append("<button class=choice data-target=" + target + ">" + text + "</button>");
+    $("#response").append(`<button class=choice data-target=${target}>${text}</button>`);
 }
 
 function clearPage() {
@@ -237,5 +237,5 @@ var PAGES = [{
 }, {
     'text': 'Music: Non-Music Section'
 }, {
-    'text': 'Sponsor'
+    'text': 'Sponsory'
 }];
