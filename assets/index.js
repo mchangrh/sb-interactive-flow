@@ -1,26 +1,25 @@
-var current_page = 0;
 $(document).ready(function () {
     loadPage(0);
-    $('#response').on('click', '.choice', function () {
+    $('#display').on('click', '.choice', function () {
         var target = $(this).data('target');
-        loadPage(target);
-    });
-    $('.choice').on('click', function () {
-        var target = $(this).data('target');
-        loadPage(target);
+        var current = $('#response').attr('data-value');
+        loadPage(target, current);
     });
 });
 
-function loadPage(id) {
+function loadPage(id, previous) {
     // Fetch JSON for page data associated with given ID
     var page_data = PAGES[id];
 
     clearPage();
+    // set attr
+    $('#response').attr('data-value', id);
     setText(page_data.text);
     if (page_data.type === 'yesno') {
         addPrompt('button1', '\u2714', page_data.targets[0])
         addPrompt('button2', '\u2718', page_data.targets[1])
     }
+    setPrevious(previous);
     // it not yesno, then end
 }
 
@@ -32,9 +31,14 @@ function addPrompt(id, text, target) {
     $("#response").append(`<button class=choice id=${id} data-target=${target}>${text}</button>`);
 }
 
+function setPrevious(id) {
+    $('#control').prepend(`<button class=choice data-target=${id}>Back</button>`)
+}
+
 function clearPage() {
     $("#page_text").empty();
     $("#response").empty();
+    $('#control').empty();
 }
 
 // Page data

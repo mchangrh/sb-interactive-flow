@@ -8,8 +8,15 @@ html {
   color: #D5D7D8;
 }
 
-p, button {
+.container {
+  display: flex;
+  flex-direction: row;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+p, button {
   font-size: 3em;
 }
 
@@ -31,4 +38,9 @@ button {
 
 .navbar {
   flex: 0 0;
+}
+
+a, a:link, a:visited, a:active, a:hover {
+  color: white;
+  text-decoration: none;
 }
